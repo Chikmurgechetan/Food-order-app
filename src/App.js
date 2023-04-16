@@ -1,11 +1,13 @@
 import React from "react";
 import Header from "./components/Layout/Header";
-import Summery from "./components/Meals/Summary";
+import Foods from "./components/Meals/Foods";
 function App() {
   return (
     <>
       <Header/>
-      <Summery/>
+      <main>
+      <Foods/>
+         </main>
     </>
   );
 }
