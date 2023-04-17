@@ -1,6 +1,7 @@
 import React from "react";
 
 import classes from './FoodItems.module.css'
+import InputForm from "./InputForm";
 
 
 const FoodItems = (props) =>{
@@ -12,7 +13,9 @@ const FoodItems = (props) =>{
             <div className={classes.description}>{props.description}</div>
             <div className={classes.price}>{price}</div>
         </div>
-        <div></div>
+        <div>
+            <InputForm/>
+        </div>
         </li>
     )
 }

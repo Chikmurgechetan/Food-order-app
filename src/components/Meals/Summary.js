@@ -2,7 +2,7 @@ import React from "react";
 
 import classes from './Summary.module.css'
 
-const Summery = () =>{
+const Summary = () =>{
     return(
         <section className={classes.summary}>
         <h2>Delicius Food, Delivered To you </h2>
@@ -17,4 +17,4 @@ const Summery = () =>{
         </section>
     )
 }
-export default  Summery;
+export default  Summary;
