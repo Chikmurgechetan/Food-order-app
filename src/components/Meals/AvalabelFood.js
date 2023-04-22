@@ -42,15 +42,15 @@ const DUMMY_MEALS = [
                 {
                    DUMMY_MEALS.map((food)=>{
                     return(    
-                        <FoodItems key={food.id}
+                        <FoodItems
+                         key={food.id}
+                         id={food.id}
                          name={food.name}
                          description={food.description}
                          price={food.price}
                         />
 
-                    )
-
-                    })
+                    ) })
                 }
             </ul>
             </Card>

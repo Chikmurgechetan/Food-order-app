@@ -5,7 +5,11 @@ import InputForm from "./InputForm";
 
 
 const FoodItems = (props) =>{
+ 
+    console.log(props.id);
+
     const price = `$${props.price.toFixed(2)}`
+    
     return(
         <li className={classes.food}>
         <div>
@@ -14,7 +18,7 @@ const FoodItems = (props) =>{
             <div className={classes.price}>{price}</div>
         </div>
         <div>
-            <InputForm/>
+            <InputForm id={props.id} item={props}   />
         </div>
         </li>
     )
