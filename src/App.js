@@ -7,7 +7,7 @@ import CartProvider from "./store/CartProvider";
 
 
 function App() {
-     const[cartShow,setCartShow] = useState(false)
+ const[cartShow,setCartShow] = useState(false)
    
    const showCartHandler = ()=>{
     setCartShow(true)
@@ -22,7 +22,7 @@ function App() {
     {cartShow && <Cart onClose={hideCarttHandler}/>}
       <Header onCartShow={showCartHandler}/>
       <main>
-      <Foods/>
+         <Foods/>
        </main>
    </CartProvider>
   );

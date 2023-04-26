@@ -7,45 +7,51 @@ import CartContext from "../../store/cart-context";
 const Cart = (props) =>{
     
   const cartcnx = useContext(CartContext);
-  
  
+    console.log(cartcnx.cartItems,'som=======')
 
-     const cartItems=(
-      <ul className={classes["cart-items"]}>
-        {
-          cartcnx.items.map((item)=>(
-            <li className={classes['cart-item']}>
-               <div >
-       
-       <h2>{item.name}</h2>
-       <div className={classes.summary}>
-         <span className={classes.price}>{item.price}</span>
-         <span className={classes.quantity}>x {item.quantity}</span>
-       </div>
-     </div>
-            </li>
-          ))
-        }
+       const cartItemRemoveHandler = (id) =>{
+           
+      }
+
+     const CartItemAddHandler = (id) =>{
+         cartcnx.updateItem(id)
+       }
+
+
+   const cartItems=(
+       <ul className={classes["cart-items"]}>
+       {
+      cartcnx.cartItems.map((item)=>(
+       <li className={classes['cart-item']} key={item.id}>
+    <div >
+        <h2>{item.name}</h2>
+    <div className={classes.summary}>
+     <span className={classes.price}>${item.price}</span>
+     <span className={classes.quantity}> x {item.amount}</span>
+   </div>
+      </div>
+     
+       <div className={classes.actions}>
+          <button onClick={()=>cartItemRemoveHandler(item.id)}>-</button>
+          <button onClick={()=>CartItemAddHandler(item.id)}>+</button>
+        </div> 
+    </li>
+          ))}
       </ul>
      )
+  
    
-   
-     const prices = cartcnx.items.map((item) => item.price);    // took prices in array
-         let total = 0;
-     for (var i = 0; i < prices.length; i++) {          // added prices for total
-       total += prices[i];
-     }
-   
-     const totalAmount = total.toFixed(2);
+   const totalAmount = cartcnx.cartAmount.toFixed(2);
 
     return(
         <Modal>
           <div>
-            {cartItems}
-            <div className={classes.total}>
+             {cartItems} 
+             <div className={classes.total}>
                 <span>Total Amount</span>
-                <span>{totalAmount}</span>
-            </div>
+                <span>${ totalAmount}</span>
+            </div> 
             <div  className={classes.actions}>
                 <button className={classes['button-alt']} onClick={props.onClose}>Close</button>
                 <button classes={classes.button}>Order</button>

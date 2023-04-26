@@ -6,7 +6,7 @@ import InputForm from "./InputForm";
 
 const FoodItems = (props) =>{
  
-    console.log(props.id);
+    // console.log(props.id);
 
     const price = `$${props.price.toFixed(2)}`
     
