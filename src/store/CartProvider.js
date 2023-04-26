@@ -41,6 +41,24 @@ const reducerFun = (state,action)=>{
         totalQuanity:state.totalQuanity
       }
    }
+   
+   if(action.type === 'remove'){
+    const indexItem = state.allItems.findIndex((item)=>{
+       return item.id === action.id;
+    })
+    state.allItems[indexItem].amount-=1;
+    state.totalAmount-=state.allItems[indexItem].price;
+    state.totalQuanity-=1;
+
+    return{
+      allItems:state.allItems,
+      totalAmount:state.totalAmount,
+      totalQuanity:state.totalQuanity
+    }
+
+   }
+
+
    return {
       allItems:[],
       totalAmount:0,
@@ -70,7 +88,7 @@ const [items,dispatchItems] = useReducer(reducerFun,{
     }
 
    const removeItemFromCartHandler = (id) =>{
-       
+       dispatchItems({type:'remove',id:id})
    };
      
    

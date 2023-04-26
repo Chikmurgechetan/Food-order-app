@@ -8,15 +8,15 @@ const Cart = (props) =>{
     
   const cartcnx = useContext(CartContext);
  
-    console.log(cartcnx.cartItems,'som=======')
+  //  console.log(cartcnx.cartItems,'som=======')
 
        const cartItemRemoveHandler = (id) =>{
-           
+           cartcnx.removeItem(id);
       }
 
      const CartItemAddHandler = (id) =>{
-         cartcnx.updateItem(id)
-       }
+         cartcnx.updateItem(id);
+        }
 
 
    const cartItems=(
