@@ -46,13 +46,24 @@ const reducerFun = (state,action)=>{
     const indexItem = state.allItems.findIndex((item)=>{
        return item.id === action.id;
     })
-    state.allItems[indexItem].amount-=1;
-    state.totalAmount-=state.allItems[indexItem].price;
+    
+   const existingItem = state.allItems[indexItem];
+    const updatingAmount = state.totalAmount-existingItem.price;
     state.totalQuanity-=1;
+    
+    let updateItems;
+    if(existingItem.amount === 1){
+      updateItems = state.allItems.filter(item =>  item.id !== action.id );
+    }else{
+      const updatedItem = {...existingItem, amount:  existingItem.amount - 1};
+      updateItems = [...state.allItems];
+      updateItems[indexItem] = updatedItem;
+    }
+
 
     return{
-      allItems:state.allItems,
-      totalAmount:state.totalAmount,
+      allItems:updateItems,
+      totalAmount:updatingAmount,
       totalQuanity:state.totalQuanity
     }
 

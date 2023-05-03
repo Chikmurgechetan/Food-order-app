@@ -24,19 +24,19 @@ const Cart = (props) =>{
        {
       cartcnx.cartItems.map((item)=>(
        <li className={classes['cart-item']} key={item.id}>
-    <div >
+         <div >
         <h2>{item.name}</h2>
-    <div className={classes.summary}>
+        <div className={classes.summary}>
      <span className={classes.price}>${item.price}</span>
      <span className={classes.quantity}> x {item.amount}</span>
    </div>
       </div>
      
-       <div className={classes.actions}>
+         <div className={classes.actions}>
           <button onClick={()=>cartItemRemoveHandler(item.id)}>-</button>
           <button onClick={()=>CartItemAddHandler(item.id)}>+</button>
-        </div> 
-    </li>
+         </div> 
+      </li>
           ))}
       </ul>
      )
@@ -45,7 +45,7 @@ const Cart = (props) =>{
    const totalAmount = cartcnx.cartAmount.toFixed(2);
 
     return(
-        <Modal>
+        <Modal  onClose={props.onClose} >
           <div>
              {cartItems} 
              <div className={classes.total}>

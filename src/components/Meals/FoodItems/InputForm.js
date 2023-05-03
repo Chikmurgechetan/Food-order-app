@@ -41,7 +41,6 @@ const InputForm = (props) =>{
        type="number"
        max='5'
        min='1'
-      
        onChange={quantityHandler}
        value={itemQuantity}
 
